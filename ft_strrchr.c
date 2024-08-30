@@ -20,15 +20,13 @@ char *ft_strrchr(const char *s, int c)
     while (*s)
     {
         if (*s == (char)c)
-            res = (char *) s;
+            res = (char *)s;
         s++;
     }
-    if (*s == (char)c)
-        res = (char *) s;
     return (res);
 }
 
 // int main()
 // {
-//     printf("%s", ft_strrchr("123421323", '2'));
+//     printf("%s", ft_strrchr("1234213232", '2'));
 // }

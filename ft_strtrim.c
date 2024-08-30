@@ -10,4 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+char	*ft_strtrim(char const *s, char const *set)
+{
+	size_t	size;
+	char	*res;
+
+	if (!s || !set)
+		return (NULL);
+}
