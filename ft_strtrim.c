@@ -32,10 +32,8 @@ char	*ft_strtrim(char const *s, char const *set)
 	while (*s && istrim(*s, set))
 		s++;
 	size = ft_strlen(s);
-	printf("%zu\n", size);
 	while (istrim(s[size - 1], set) && size > 0)
 		size--;
-	printf("%zu\n", size);
 	res = (char *) malloc(size + 1);
 	if (!res)
 		return (NULL);
