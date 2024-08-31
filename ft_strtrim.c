@@ -17,7 +17,7 @@ static int	istrim(const char c, const char *set)
 	while (*set)
 	{
 		if (*set++ == c)
-			return (1);			
+			return (1);
 	}
 	return (0);
 }

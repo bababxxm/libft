@@ -19,11 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	if (start >= (unsigned int)ft_strlen(s))
-	{
-		res = (char *) malloc(sizeof(char) + 1);
-		ft_strlcpy(res, "\0", 1);
-		return (res);
-	}
+		return (ft_strdup(""));
 	if (len > ft_strlen(s) - start)
 		len = ft_strlen(s) - start;
 	s += start;
@@ -36,5 +32,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 // int	main()
 // {
-// 	printf("%s", ft_substr("Hello World", 6, 5));
+// 	printf("%s", ft_substr("tripouille", 100, 1));
 // }

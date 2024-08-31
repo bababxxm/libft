@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int append_str(char *dst, char *src, int i, int j)
+static int	append_str(char *dst, char *src, int i, int j)
 {
 	while (src[j])
 		dst[i++] = src[j++];

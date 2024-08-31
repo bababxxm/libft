@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+// #include "libft.h"
 
-char	*ft_itoa(int n)
-{
-	char		*res;
-	int			len;
-	unsigned	number;
+// char	*ft_itoa(int n)
+// {
+// 	char		*res;
+// 	int			len;
+// 	unsigned	number;
 
-	len = 
-}
-
+// 	len = 
+// }

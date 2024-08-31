@@ -20,16 +20,11 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	if ((!dst) && (!src))
 		return (dst);
 	while (++i < n)
-		((char *)dst)[i] = ((char *)src)[i];
-	((char *)dst)[i] = '\0';
+		*((char *)dst + i) = *((char *)src + i);
 	return (dst);
 }
 // int	main()
 // {
-// 	char	dst[100];
-
-// 	printf("%s", (char *) ft_memcpy(dst, "abcd", 3));
+// 	char	dst[30];
+// 	printf("%s", (char *)ft_memcpy(dst, "zyxwvutsrqponmlkjihgfedcba", 14));
 // }
-
-
-
