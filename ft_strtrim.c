@@ -12,6 +12,16 @@
 
 #include "libft.h"
 
+static int	istrim(const char c, const char *set)
+{
+	while (*set)
+	{
+		if (*set++ == c)
+			return (1);			
+	}
+	return (0);
+}
+
 char	*ft_strtrim(char const *s, char const *set)
 {
 	size_t	size;
@@ -19,4 +29,21 @@ char	*ft_strtrim(char const *s, char const *set)
 
 	if (!s || !set)
 		return (NULL);
+	while (*s && istrim(*s, set))
+		s++;
+	size = ft_strlen(s);
+	printf("%zu\n", size);
+	while (istrim(s[size - 1], set) && size > 0)
+		size--;
+	printf("%zu\n", size);
+	res = (char *) malloc(size + 1);
+	if (!res)
+		return (NULL);
+	ft_strlcpy(res, (char *)s, size + 1);
+	return (res);
 }
+
+// int	main()
+// {
+// 	printf("%s", ft_strtrim("abc#121#abc", "#$abc"));
+// }
