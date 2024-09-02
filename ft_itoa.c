@@ -40,11 +40,11 @@ char	*ft_itoa(int num)
 		return (NULL);
 	res[len--] = '\0';
 	if (n == 0)
-		*res = '0';
+		res[0] = '0';
 	if (n < 0)
 	{
 		n = -n;
-		*res = '-';
+		res[0] = '-';
 	}
 	while (n > 0)
 	{
