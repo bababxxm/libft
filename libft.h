@@ -14,14 +14,7 @@
 # define LIBFT_H
 
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
-# include <bsd/string.h>
-# include <strings.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

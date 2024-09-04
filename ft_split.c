@@ -10,90 +10,71 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
+#include "libft.h"
 
-// static int	ft_issep(const char c, char sep)
-// {
-// 	return(c == sep);
-// }
+static	int	issep(char const *s, char c)
+{
+	int	sep;
 
-// static int	ft_countstr(const char *s, char c)
-// {
-// 	int	str;
+	if (!s)
+		return (0);
+	sep = 0;
+	while (*s)
+	{
+		if (*s != c && (*(s + 1) == c || *(s + 1) == '\0'))
+			sep++;
+		s++;
+	}
+	return (sep);
+}
 
-// 	str = 0;
-// 	while (*s)
-// 	{
-// 		if (ft_issep(*s++, c) && *s != '\0')
-// 			str++;
-// 	}
-// 	return (str);
-// }
+static int	len(char const *s, char c)
+{
+	int	len;
 
-// static int	ft_countchr(const char c, char sep)
-// {
-// 	int	chr;
+	if (!s)
+		return (0);
+	len = 0;
+	while (*s && *s != c)
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}
 
-// 	chr = 0;
-// 	while (*s)
-// 	{
-// 		while (ft_issep(*s++, c))
-// 			chr = chr;
-// 		while (!ft_issep(*s++, c))
-// 			chr++;
-// 		break ;
-// 	}
-// 	return (chr);
-// }
+static char	**freesplit(char **str, int nb)
+{
+	while (nb >= 0)
+		free(str[nb--]);
+	free(str);
+	return (NULL);
+}
 
-// // static char	*ft_newstr(const char *s, char c)
-// // {
+char	**ft_split(char const *s, char c)
+{
+	char	**str;
+	int		start;
+	int		idx;
 
-// // }
-
-// char	**ft_split(char const *s, char c)
-// {
-// 	int		i;
-// 	int		j;
-// 	char	**strs;
-
-// 	i = 0;
-// 	j = 0;
-// 	if (!s)
-// 		return (NULL);	
-// 	printf("strs size = %d\n", ft_countstr(s, c));
-// 	strs = (char **) malloc(ft_countstr(s, c) + 1);
-// 	if (!strs)
-// 		return (NULL);
-// 	while (s[i])
-// 	{
-// 		while (ft_issep(s[i], c))
-// 			i++;
-// 		while (!ft_issep(s[i], c))
-// 		{
-// 			ft_countchr(s, c)
-// 		}
-// 	}
-// 	printf("str size = %d\n", ft_countchr(s, c));
-// 	return (NULL);
-// 	while (*s)
-// 	{
-// 		while (ft_issep(*s, c))
-// 		{
-// 			return (NULL);
-// 		}
-// 		while (!ft_issep(*s, c))
-// 		{
-// 			return (NULL);
-// 		}
-// 	}
-// 	return (NULL);
-// }
-
-// int main()
-// {
-// 	char	**strs;
-// 	strs = ft_split("abcd////12354//AB///6//999////", '/');
-// 	while (strs)
-// 		printf("%s", *strs++);
-// }
+	str = (char **)malloc(sizeof(char *) * (issep(s, c) + 1));
+	if (!s || !str)
+		return (NULL);
+	start = 0;
+	idx = 0;
+	while (s[start])
+	{
+		if (s[start] != c)
+		{
+			str[idx] = ft_substr(s, start, len(&s[start], c));
+			if (!str[idx])
+				return (freesplit(str, idx));
+			idx++;
+			start += len(&s[start], c);
+		}
+		else
+			start++;
+	}
+	str[idx] = 0;
+	return (str);
+}
