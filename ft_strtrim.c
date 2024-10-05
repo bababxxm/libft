@@ -39,8 +39,3 @@ char	*ft_strtrim(char const *s, char const *set)
 	res = ft_substr(start, 0, end - start + 1);
 	return (res);
 }
-
-// int	main()
-// {
-// 	printf("%s", ft_strtrim("abc#121#abc", "#$abc"));
-// }
