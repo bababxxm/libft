@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/30 16:41:08 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/05/15 23:41:19 by sklaokli         ###   ########.fr       */
+/*   Created: 2025/05/16 00:01:29 by sklaokli          #+#    #+#             */
+/*   Updated: 2025/05/16 00:06:38 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	*ft_malloc(size_t size)
 {
-	t_list	*node;
+	void	*ptr;
 
-	node = (t_list *) malloc(sizeof(t_list));
-	if (!node)
-		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+	ptr = malloc(size);
+	if (!ptr)
+		ft_panic("Malloc failed");
+	return (ptr);
 }

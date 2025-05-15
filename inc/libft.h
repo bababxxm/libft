@@ -6,7 +6,7 @@
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:57:13 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/05/15 23:07:21 by sklaokli         ###   ########.fr       */
+/*   Updated: 2025/05/16 00:06:53 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char	*ft_itoa(int n);
 int		ft_atoi(const char *nptr);
 long	ft_atol(const char *ptr);
 
+void	*ft_malloc(size_t size);
 void	*ft_calloc(size_t n, size_t size);
 void	ft_bzero(void *s, size_t n);
 void	ft_free(void *ptr);

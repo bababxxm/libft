@@ -6,21 +6,18 @@
 #    By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 19:44:55 by sklaokli          #+#    #+#              #
-#    Updated: 2025/05/15 23:09:54 by sklaokli         ###   ########.fr        #
+#    Updated: 2025/05/16 00:05:25 by sklaokli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-## Libraries
 NAME		:=	libft.a
 
-## Paths to files
 SRC_DIR		:=	src
 OBJ_DIR		:=	obj
 INC_DIR		:=	inc
 
-INC			:= -I$(INC_DIR)
+INC			:=	-I$(INC_DIR)
 
-## Files grouped by subdirectory
 FILES		:=	\
 				char/ft_isalnum.c \
 				char/ft_isalpha.c \
@@ -33,32 +30,36 @@ FILES		:=	\
 				int/ft_abs.c \
 				int/ft_isint.c \
 				\
-				str/ft_strchr.c \
-				str/ft_strdup.c \
-				str/ft_striteri.c \
-				str/ft_strjoin.c \
-				str/ft_strlcat.c \
-				str/ft_strlcpy.c \
 				str/ft_strlen.c \
-				str/ft_strmapi.c \
+				str/ft_strdup.c \
+				str/ft_strcmp.c \
 				str/ft_strncmp.c \
-				str/ft_strnstr.c \
+				str/ft_strchr.c \
 				str/ft_strrchr.c \
+				str/ft_striteri.c \
 				str/ft_strtrim.c \
 				str/ft_substr.c \
+				str/ft_strmapi.c \
+				str/ft_strlcpy.c \
+				str/ft_strlcat.c \
+				str/ft_strjoin.c \
+				str/ft_strnstr.c \
 				str/ft_split.c \
 				\
-				conv/ft_atoi.c \
 				conv/ft_itoa.c \
+				conv/ft_atoi.c \
 				conv/ft_atol.c \
 				\
-				mem/ft_bzero.c \
+				mem/ft_malloc.c \
 				mem/ft_calloc.c \
-				mem/ft_memchr.c \
-				mem/ft_memcmp.c \
-				mem/ft_memcpy.c \
-				mem/ft_memmove.c \
+				mem/ft_bzero.c \
+				mem/ft_free.c \
+				mem/ft_free_2d.c \
 				mem/ft_memset.c \
+				mem/ft_memcpy.c \
+				mem/ft_memcmp.c \
+				mem/ft_memchr.c \
+				mem/ft_memmove.c \
 				\
 				fd/ft_putchar_fd.c \
 				fd/ft_putstr_fd.c \
@@ -66,13 +67,13 @@ FILES		:=	\
 				fd/ft_putnbr_fd.c \
 				\
 				lst/ft_lstnew.c \
+				lst/ft_lstsize.c \
 				lst/ft_lstlast.c \
 				lst/ft_lstadd_front.c \
 				lst/ft_lstadd_back.c \
-				lst/ft_lstsize.c \
+				lst/ft_lstiter.c \
 				lst/ft_lstdelone.c \
 				lst/ft_lstclear.c \
-				lst/ft_lstiter.c \
 				lst/ft_lstmap.c \
 				\
 				ps/ft_exit.c \
@@ -85,7 +86,6 @@ OBJ			:=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
 COMPILED	:=	0
 TOTAL_FILES	:=	$(words $(OBJ))
 
-## Color Codes
 CYAN		:=	\033[1;36m
 GREEN		:=	\033[1;32m
 RED			:=	\033[1;31m
@@ -93,15 +93,11 @@ BLUE		:=	\033[1;34m
 YELLOW		:=	\033[1;33m
 RESET		:=	\033[0m
 
-## Commands
 RM			:=	rm -f
 CC			:=	cc
 AR			:=	ar rcs
 WFLAGS		:=	-Wall -Wextra -Werror
-VFLAGS		:=	--track-fds=yes --trace-children=yes \
-				--leak-check=full --show-leak-kinds=all
 
-## Targets
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
 				@ mkdir -p $(dir $@)
 				@ $(eval COMPILED=$(shell echo $$(($(COMPILED)+1))))
@@ -125,7 +121,4 @@ fclean:		Makefile
 
 re:			Makefile fclean all
 
-valgrind:	Makefile $(NAME)
-			@ valgrind $(VFLAGS) ./$(NAME)
-
-.PHONY:		all clean fclean re valgrind
+.PHONY:		all clean fclean re
