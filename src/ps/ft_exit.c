@@ -6,7 +6,7 @@
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:44:09 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/05/15 22:23:29 by sklaokli         ###   ########.fr       */
+/*   Updated: 2025/05/16 11:32:48 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	ft_exit(char *str, int status)
 		fd = 2;
 	if (!str)
 		exit(status);
-	while (*str)
-		write(fd, str++, 1);
-	write(fd, "\n", 1);
+	ft_putendl_fd(str, fd);
 	exit(status);
 }
