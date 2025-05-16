@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strskip.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/30 16:41:08 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/05/16 11:39:56 by sklaokli         ###   ########.fr       */
+/*   Created: 2025/05/16 11:54:55 by sklaokli          #+#    #+#             */
+/*   Updated: 2025/05/16 15:37:38 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+char	*ft_strskip(char *s, char *set, bool is_in_set)
 {
-	t_list	*node;
-
-	node = malloc(sizeof(t_list));
-	if (!node)
+	if (!s)
 		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+	if (is_in_set)
+	{
+		while (*s && ft_strchr(set, *s))
+			s++;
+		return (s);
+	}
+	else
+	{
+		while (*s && !ft_strchr(set, *s))
+			s++;
+		return (s);
+	}
 }

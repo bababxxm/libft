@@ -6,7 +6,7 @@
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:57:13 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/05/16 00:06:53 by sklaokli         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:21:36 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
 # include <limits.h>
@@ -38,11 +39,13 @@ int		ft_abs(int n);
 bool	ft_isint(long nbr);
 
 size_t	ft_strlen(const char *s);
+size_t	ft_strlen_c(char *str, char c);
 char	*ft_strdup(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+char	*ft_strskip(char *s, char *set, bool is_in_set);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strtrim(char const *s, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -83,7 +86,7 @@ void	ft_lstdelone(void *ptr, void (*del)(void*));
 void	ft_lstclear(void **ptr, void (*del)(void*));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-void	ft_exit(char *str, int status);
+void	ft_exit(char *str, int exitcode);
 int		ft_fork(void);
 void	ft_panic(char *str);
 
