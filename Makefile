@@ -6,7 +6,7 @@
 #    By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 19:44:55 by sklaokli          #+#    #+#              #
-#    Updated: 2025/05/16 15:14:19 by sklaokli         ###   ########.fr        #
+#    Updated: 2025/05/16 15:57:44 by sklaokli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ OBJ_DIR		:=	obj
 INC_DIR		:=	inc
 
 INC			:=	-I$(INC_DIR)
+DEPS		:=	$(INC_DIR)/libft.h
 
 FILES		:=	\
 				char/ft_isalnum.c \
@@ -109,7 +110,7 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
 
 all:		$(NAME)
 
-$(NAME):	Makefile $(OBJ)
+$(NAME):	Makefile $(OBJ) $(DEPS)
 			@ $(AR) $(NAME) $(OBJ)
 			@ echo "$(GREEN)[OK] $(NAME) built succesfully.$(RESET)"
 
