@@ -6,13 +6,14 @@
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 17:00:10 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/06/08 17:14:10 by sklaokli         ###   ########.fr       */
+/*   Updated: 2025/06/08 20:04:24 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GCT_H
 # define GCT_H
 
+# include "stdio.h"
 # include "stdlib.h"
 
 typedef struct s_gct
