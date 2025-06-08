@@ -6,7 +6,7 @@
 #    By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 19:44:55 by sklaokli          #+#    #+#              #
-#    Updated: 2025/05/31 18:53:09 by sklaokli         ###   ########.fr        #
+#    Updated: 2025/06/08 17:10:58 by sklaokli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJ_DIR		:=	obj
 INC_DIR		:=	inc
 
 INC			:=	-I$(INC_DIR)
-DEPS		:=	$(INC_DIR)/libft.h
+DEPS		:=	$(INC_DIR)/libft.h $(INC_DIR)/gnl.h $(INC_DIR)/gct.h
 
 FILES		:=	\
 				char/ft_isalnum.c \
@@ -81,7 +81,12 @@ FILES		:=	\
 				\
 				ps/ft_exit.c \
 				ps/ft_fork.c \
-				ps/ft_panic.c
+				ps/ft_panic.c \
+				\
+				gnl/gnl.c \
+				gnl/utils.c \
+				\
+				gct/gct.c
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(FILES))
 OBJ			:=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))

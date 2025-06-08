@@ -6,7 +6,7 @@
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:57:13 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/05/16 15:58:01 by sklaokli         ###   ########.fr       */
+/*   Updated: 2025/06/08 17:13:09 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <limits.h>
+# include <fcntl.h>
+
+# include "gnl.h"
+# include "gct.h"
 
 # define WHITESPACE "\t\n\v\f\r "
 
