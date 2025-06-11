@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   gct_split.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 18:59:21 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/06/11 21:01:37 by sklaokli         ###   ########.fr       */
+/*   Updated: 2025/06/11 20:58:49 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	*ft_split_str(char *s, int len)
 
 	if (!s)
 		return (NULL);
-	res = (char *)malloc(sizeof(char) * (len + 1));
+	res = (char *)gct_malloc(sizeof(char) * (len + 1));
 	if (!res)
 		return (NULL);
 	i = 0;
@@ -66,7 +66,7 @@ void	ft_split_free(char **split)
 		ft_free_mtx((void **)split);
 }
 
-char	**ft_split(char *s, char sep)
+char	**gct_split(char *s, char sep)
 {
 	int		len;
 	int		idx;
@@ -74,7 +74,7 @@ char	**ft_split(char *s, char sep)
 
 	if (!s)
 		return (NULL);
-	split = (char **)malloc(sizeof(char *) * (ft_wordcount(s, sep) + 1));
+	split = (char **)gct_malloc(sizeof(char *) * (ft_wordcount(s, sep) + 1));
 	if (!split)
 		return (NULL);
 	idx = 0;

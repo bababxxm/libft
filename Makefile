@@ -6,7 +6,7 @@
 #    By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 19:44:55 by sklaokli          #+#    #+#              #
-#    Updated: 2025/06/08 17:10:58 by sklaokli         ###   ########.fr        #
+#    Updated: 2025/06/11 21:00:08 by sklaokli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ FILES		:=	\
 				str/ft_strlen.c \
 				str/ft_strlen_c.c \
 				str/ft_strdup.c \
+				str/ft_strndup.c \
 				str/ft_strcmp.c \
 				str/ft_strncmp.c \
 				str/ft_strchr.c \
@@ -48,6 +49,7 @@ FILES		:=	\
 				str/ft_strjoin.c \
 				str/ft_strnstr.c \
 				str/ft_split.c \
+				str/ft_split_set.c \
 				\
 				conv/ft_itoa.c \
 				conv/ft_atoi.c \
@@ -56,8 +58,7 @@ FILES		:=	\
 				mem/ft_malloc.c \
 				mem/ft_calloc.c \
 				mem/ft_bzero.c \
-				mem/ft_free.c \
-				mem/ft_free_2d.c \
+				mem/ft_free_mtx.c \
 				mem/ft_memset.c \
 				mem/ft_memcpy.c \
 				mem/ft_memcmp.c \
@@ -86,7 +87,14 @@ FILES		:=	\
 				gnl/gnl.c \
 				gnl/utils.c \
 				\
-				gct/gct.c
+				gct/gct.c \
+				gct/gct_strdup.c \
+				gct/gct_strndup.c \
+				gct/gct_strtrim.c \
+				gct/gct_strjoin.c \
+				gct/gct_substr.c \
+				gct/gct_split.c \
+				gct/gct_split_set.c
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(FILES))
 OBJ			:=	$(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))

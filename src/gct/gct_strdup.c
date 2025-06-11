@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_2d.c                                       :+:      :+:    :+:   */
+/*   gct_strdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 22:28:28 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/05/15 23:07:49 by sklaokli         ###   ########.fr       */
+/*   Created: 2024/08/29 20:24:43 by sklaokli          #+#    #+#             */
+/*   Updated: 2025/06/11 20:58:52 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_2d(void **matrix)
+char	*gct_strdup(const char *src)
 {
-	int	idx;
+	int		i;
+	char	*dst;
 
-	if (!matrix)
-		return ;
-	idx = 0;
-	while (matrix[idx])
-		ft_free(matrix[idx]);
-	ft_free(matrix);
+	i = -1;
+	dst = gct_malloc(ft_strlen(src) + 1);
+	if (!dst)
+		return (NULL);
+	while (src[++i])
+		dst[i] = src[i];
+	dst[i] = '\0';
+	return (dst);
 }
