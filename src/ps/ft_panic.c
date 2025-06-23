@@ -6,7 +6,7 @@
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:13:21 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/05/16 11:32:44 by sklaokli         ###   ########.fr       */
+/*   Updated: 2025/06/23 17:00:58 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_panic(char *str)
 {
 	if (!str)
 		exit(1);
-	ft_putendl_fd(str, 1);
+	ft_putendl_fd(str, 2);
 	exit(1);
 }

@@ -6,7 +6,7 @@
 #    By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 19:44:55 by sklaokli          #+#    #+#              #
-#    Updated: 2025/06/11 21:00:08 by sklaokli         ###   ########.fr        #
+#    Updated: 2025/06/23 16:58:57 by sklaokli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ FILES		:=	\
 				mem/ft_malloc.c \
 				mem/ft_calloc.c \
 				mem/ft_bzero.c \
-				mem/ft_free_mtx.c \
+				mem/ft_matrix_free.c \
 				mem/ft_memset.c \
 				mem/ft_memcpy.c \
 				mem/ft_memcmp.c \
