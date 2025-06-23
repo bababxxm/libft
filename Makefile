@@ -6,7 +6,7 @@
 #    By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 19:44:55 by sklaokli          #+#    #+#              #
-#    Updated: 2025/06/23 16:58:57 by sklaokli         ###   ########.fr        #
+#    Updated: 2025/06/23 17:06:26 by sklaokli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,6 @@ FILES		:=	\
 				int/ft_isint.c \
 				\
 				str/ft_strlen.c \
-				str/ft_strlen_c.c \
 				str/ft_strdup.c \
 				str/ft_strndup.c \
 				str/ft_strcmp.c \

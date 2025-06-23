@@ -6,7 +6,7 @@
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:57:13 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/06/23 16:54:20 by sklaokli         ###   ########.fr       */
+/*   Updated: 2025/06/23 17:05:32 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ long	ft_atol(const char *ptr);
 void	*ft_malloc(size_t size);
 void	*ft_calloc(size_t n, size_t size);
 void	ft_bzero(void *s, size_t n);
-void	ft_free_mtx(void **matrix);
+void	ft_matrix_free(void **matrix);
 void	*ft_memset(void *s, int c, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 int		ft_memcmp(void *dst, const void *src, size_t n);

@@ -6,7 +6,7 @@
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 18:59:21 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/06/11 21:01:37 by sklaokli         ###   ########.fr       */
+/*   Updated: 2025/06/23 17:06:23 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static char	*ft_split_str(char *s, int len)
 void	ft_split_free(char **split)
 {
 	if (split)
-		ft_free_mtx((void **)split);
+		ft_matrix_free((void **)split);
 }
 
 char	**ft_split(char *s, char sep)
