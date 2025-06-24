@@ -6,7 +6,7 @@
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:57:13 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/06/23 17:05:32 by sklaokli         ###   ########.fr       */
+/*   Updated: 2025/06/24 23:46:38 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int		ft_abs(int n);
 bool	ft_isint(long nbr);
 
 size_t	ft_strlen(const char *s);
-size_t	ft_strlen_c(char *str, char c);
 char	*ft_strdup(const char *s);
 char	*ft_strndup(const char *s, size_t n);
 int		ft_strcmp(const char *s1, const char *s2);
@@ -64,6 +63,7 @@ char	**ft_split_set(char *str, char *set);
 
 char	*ft_itoa(int n);
 int		ft_atoi(const char *nptr);
+float	ft_atof(char *str);
 long	ft_atol(const char *ptr);
 
 void	*ft_malloc(size_t size);

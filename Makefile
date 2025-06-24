@@ -6,7 +6,7 @@
 #    By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 19:44:55 by sklaokli          #+#    #+#              #
-#    Updated: 2025/06/23 17:06:26 by sklaokli         ###   ########.fr        #
+#    Updated: 2025/06/24 23:46:18 by sklaokli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ FILES		:=	\
 				\
 				conv/ft_itoa.c \
 				conv/ft_atoi.c \
+				conv/ft_atof.c \
 				conv/ft_atol.c \
 				\
 				mem/ft_malloc.c \

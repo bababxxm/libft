@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 12:25:44 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/06/24 16:33:35 by sklaokli         ###   ########.fr       */
+/*   Created: 2025/06/24 23:44:59 by sklaokli          #+#    #+#             */
+/*   Updated: 2025/06/24 23:47:34 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atol(const char *ptr)
+float	ft_atof(char *str)
 {
+	int		div;
 	int		sign;
-	long	res;
+	float	result;
+	float	fraction;
 
+	div = 1;
 	sign = 1;
-	res = 0;
-	while ((*ptr >= 9 && *ptr <= 13) || (*ptr == 32))
-		ptr++;
-	if (*ptr == '-' || *ptr == '+')
+	result = 0.0f;
+	fraction = 0.0f;
+	if (*str == '-' || *str == '+')
 	{
-		if (*ptr == '-')
+		if (*str++ == '-')
 			sign = -1;
-		ptr++;
 	}
-	while (*ptr >= '0' && *ptr <= '9')
+	while (*str && (*str >= '0' && *str <= '9'))
+		result = result * 10 + (*str++ - '0');
+	if (*str++ == '.')
 	{
-		res = (res * 10) + (*ptr - '0');
-		ptr++;
+		while (*str && (*str >= '0' && *str <= '9'))
+		{
+			fraction = (fraction * 10) + (*str++ - '0');
+			div *= 10;
+		}
 	}
-	return (sign * res);
+	return (sign * (result + fraction / div));
 }
