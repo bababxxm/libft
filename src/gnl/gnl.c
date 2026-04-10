@@ -5,95 +5,137 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 19:11:24 by sklaokli          #+#    #+#             */
-/*   Updated: 2025/06/08 17:09:41 by sklaokli         ###   ########.fr       */
+/*   Created: 2025/06/28 17:04:59 by sklaokli          #+#    #+#             */
+/*   Updated: 2026/04/10 16:45:27 by sklaokli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		gnl_strlen(char *s);
-int		gnl_newline_found(char *line);
-char	*gnl_strdup(char *s);
-char	*gnl_substr(char *s, int start, int len);
-char	*gnl_strjoin(char *buffer, char *tmp);
+t_gnl	*new_buffer(char *buf)
+{
+	t_gnl	*new;
 
-static char	*get_leftover(char *buffer)
+	new = malloc(sizeof(t_gnl));
+	if (!new)
+		return (NULL);
+	new->len = ft_strlen(buf);
+	new->buf = ft_strdup(buf);
+	new->next = NULL;
+	return (new);
+}
+
+void	add_buffer(t_gnl **content, t_gnl *new)
+{
+	ft_lstadd_back((void **)content, (void *)new);
+}
+
+bool	has_newline(char *buf)
+{
+	int	i;
+
+	i = 0;
+	while (buf[i])
+	{
+		if (buf[i] == '\n')
+			return (true);
+		i++;
+	}
+	return (false);
+}
+
+void	read_to_newline(int fd, t_gnl **content)
+{
+	int		i;
+	t_gnl	*new;
+	char	buf[BUFFER_SIZE + 1];
+
+	while (1)
+	{
+		i = read(fd, buf, BUFFER_SIZE);
+		if (i <= 0)
+			return ;
+		buf[i] = '\0';
+		add_buffer(content, new_buffer(buf));
+		if (has_newline(buf))
+			break ;
+	}
+}
+
+int	len_to_newline(t_gnl *content)
+{
+	int	i;
+	int	len;
+
+	len = 0;
+	while (content)
+	{
+		i = 0;
+		while (content->buf[i])
+		{
+			len++;
+			if (content->buf[i] == '\n')
+				return (len);
+			i++;
+		}
+		content = content->next;
+	}
+	return (len);
+}
+
+char	*copy_and_update(char *line, int len, t_gnl **content)
+{
+	int		i;
+	int		cnt;
+	char	*buf;
+	t_gnl	*tmp;
+
+	i = 0;
+	cnt = 0;
+	while ((*content)->copied > 0)
+		line[cnt++] = buf[i++];
+	while (*content && cnt < len)
+	{
+		i = 0;
+		tmp = *content;
+		buf = (*content)->buf;
+		while (buf[i] && cnt < len)
+			line[cnt++] = buf[i++];
+		(*content)->copied = i;
+		if (cnt == len)
+			break ;
+		*content = (*content)->next;
+		free(tmp->buf);
+		free(tmp);
+	}
+	line[cnt] = '\0';
+	return (line);
+}
+
+char	*extract_line(t_gnl **content)
 {
 	int		len;
-	char	*tmp;
+	t_gnl	*tmp;
+	char	*line;
 
-	if (!buffer)
+	len = len_to_newline(*content);
+	line = malloc(sizeof(char) * (len + 1));
+	if (!line)
 		return (NULL);
-	len = 0;
-	while (buffer[len])
-	{
-		if (buffer[len] == '\n' || !buffer[len])
-			break ;
-		len++;
-	}
-	tmp = gnl_substr(buffer, len + 1, gnl_strlen(buffer));
-	return (free(buffer), tmp);
-}
-
-static char	*get_one_line(char *buffer)
-{
-	int		len;
-	char	*tmp;
-
-	if (!buffer)
-		return (NULL);
-	len = 0;
-	while (buffer[len])
-	{
-		if (buffer[len] == '\n' || !buffer[len])
-			break ;
-		len++;
-	}
-	tmp = gnl_substr(buffer, 0, len + 1);
-	return (tmp);
-}
-
-static char	*gnl_free(char *buffer, char *tmp)
-{
-	char	*res;
-
-	res = gnl_strjoin(buffer, tmp);
-	return (free(buffer), res);
-}
-
-static char	*get_buffer(int fd, char *buffer)
-{
-	int		byte;
-	char	*tmp;
-
-	tmp = malloc(BUFFER_SIZE + 1);
-	if (!tmp)
-		return (NULL);
-	while (!gnl_newline_found(buffer))
-	{
-		byte = read(fd, tmp, BUFFER_SIZE);
-		if (byte == -1)
-			return (free(buffer), free(tmp), NULL);
-		else if (byte == 0)
-			return (free(tmp), buffer);
-		tmp[byte] = '\0';
-		buffer = gnl_free(buffer, tmp);
-	}
-	return (free(tmp), buffer);
+	copy_and_update(line, len, content);
+	return (line);
 }
 
 char	*get_next_line(int fd)
 {
-	char		*line;
-	static char	*buffer[1024];
+	char			*line;
+	static t_gnl	*content;
 
 	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer[fd] = get_buffer(fd, buffer[fd]);
-	if (!buffer[fd])
+	read_to_newline(fd, &content);
+	if (!content)
 		return (NULL);
-	line = get_one_line(buffer[fd]);
-	buffer[fd] = get_leftover(buffer[fd]);
+	line = extract_line(&content);
 	return (line);
 }

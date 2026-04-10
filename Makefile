@@ -6,7 +6,7 @@
 #    By: sklaokli <sklaokli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 19:44:55 by sklaokli          #+#    #+#              #
-#    Updated: 2025/06/24 23:46:18 by sklaokli         ###   ########.fr        #
+#    Updated: 2026/04/10 16:46:10 by sklaokli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,7 +112,7 @@ RESET		:=	\033[0m
 RM			:=	rm -f
 CC			:=	cc
 AR			:=	ar rcs
-WFLAGS		:=	-Wall -Wextra -Werror
+WFLAGS		:=	
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
 				@ mkdir -p $(dir $@)

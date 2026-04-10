@@ -4,3 +4,4 @@ main.c
 test.c
 a.out
 .vscode
+*.txt
